@@ -2,7 +2,6 @@ package com.company.practice.security;
 
 import com.company.practice.entity.Client;
 import com.company.practice.entity.CreditPosition;
-import com.company.practice.entity.User;
 import io.jmix.core.security.CurrentAuthentication;
 import io.jmix.security.model.RowLevelBiPredicate;
 import io.jmix.security.model.RowLevelPolicyAction;
@@ -32,26 +31,4 @@ public interface ClientRoleRowLevel {
             return client.getUser().equals(currentAuthentication.getUser());
         };
     }
-
-    @PredicateRowLevelPolicy(
-            entityClass = Client.class,
-            actions = { RowLevelPolicyAction.CREATE})
-    default RowLevelBiPredicate<Client, ApplicationContext> createMyClient() {
-        return (client, applicationContext) -> {
-            CurrentAuthentication currentAuthentication = applicationContext.getBean(CurrentAuthentication.class);
-            return ((User)currentAuthentication.getUser()).getClient() == null;
-        };
-    }
-
-
-    @PredicateRowLevelPolicy(
-            entityClass = User.class,
-            actions = { RowLevelPolicyAction.READ})
-    default RowLevelBiPredicate<User, ApplicationContext> readMyUserOnly() {
-        return (user, applicationContext) -> {
-            CurrentAuthentication currentAuthentication = applicationContext.getBean(CurrentAuthentication.class);
-            return user.equals(currentAuthentication.getUser());
-        };
-    }
-
 }

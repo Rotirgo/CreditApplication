@@ -1,11 +1,16 @@
 package com.company.practice.entity;
 
+import com.company.practice.app.MaxCreditSumValid;
+import com.company.practice.app.MaxCreditSumValidator;
 import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
+import io.jmix.core.annotation.MessageSourceBasenames;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.JmixEntity;
+import io.jmix.core.validation.group.UiCrossFieldChecks;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -13,10 +18,14 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.groups.Default;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
+@MaxCreditSumValid(message = "{msg://com.company.practice.entity/CreditPosition.creditSum.validation.MaxCreditSumValid}",
+        groups = {Default.class, UiCrossFieldChecks.class})
 @JmixEntity
 @Table(name = "CREDIT_POSITION", indexes = {
         @Index(name = "IDX_CREDIT_POSITION_CREDIT", columnList = "CREDIT_ID"),
@@ -29,11 +38,13 @@ public class CreditPosition {
     @Id
     private UUID id;
 
+    @Positive(message = "{msg://com.company.practice.entity/CreditPosition.creditSum.validation.Positive}")
     @NotNull
     @Column(name = "CREDIT_SUM", nullable = false)
     private Double creditSum;
 
-    @Column(name = "PERIOD_")
+    @NotNull
+    @Column(name = "PERIOD_", nullable = false)
     private LocalDate period;
 
     @Column(name = "VERSION", nullable = false)

@@ -25,9 +25,8 @@ public class ClientService {
     public User getCurrentUser() {
         CurrentAuthentication currentAuthentication = applicationContext.getBean(CurrentAuthentication.class);
         User user = (User) currentAuthentication.getUser();
-        if(user.getClient() != null) return user;
+        if(user.getClient() == null) return user;
         else return null;
     }
-
 }
 

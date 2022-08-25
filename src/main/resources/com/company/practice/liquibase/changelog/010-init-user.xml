@@ -46,11 +46,51 @@
             <column name="ACTIVE" valueBoolean="true"/>
         </insert>
 
-        <insert tableName="USER_" dbms="oracle, mysql, mariadb">
-            <column name="ID" value="608859871b61424794c7dff348347f93"/>
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="6cc3e52d-5970-4b2e-9466-78981376be42"/>
             <column name="VERSION" value="1"/>
-            <column name="USERNAME" value="admin"/>
-            <column name="PASSWORD" value="{noop}admin"/>
+            <column name="USERNAME" value="employee1"/>
+            <column name="PASSWORD" value="{noop}111"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="dcdc7414-8d2f-43be-86c1-406c9d32f354"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee2"/>
+            <column name="PASSWORD" value="{noop}222"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="1a866ab1-de17-4308-944f-7f3a4819e89d"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee3"/>
+            <column name="PASSWORD" value="{noop}333"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="74b5e1fc-95a6-42d0-93d8-fb8e55d860c5"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client1"/>
+            <column name="PASSWORD" value="{noop}1111"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="1a48bc38-97f2-4323-800f-50e500276853"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client2"/>
+            <column name="PASSWORD" value="{noop}2222"/>
+            <column name="ACTIVE" valueBoolean="true"/>
+        </insert>
+
+        <insert tableName="USER_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="9df3192d-c7c3-45b2-aa88-9bd81af459d8"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client3"/>
+            <column name="PASSWORD" value="{noop}3333"/>
             <column name="ACTIVE" valueBoolean="true"/>
         </insert>
 
@@ -66,12 +106,100 @@
             <column name="ROLE_TYPE" value="resource"/>
         </insert>
 
-        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="oracle, mysql, mariadb">
-            <column name="ID" value="6c9e420a2b7a4c428654a9027ee14083"/>
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="0b04886d-6a1b-4660-8a69-08a22386e430"/>
             <column name="VERSION" value="1"/>
-            <column name="USERNAME" value="admin"/>
-            <column name="ROLE_CODE" value="system-full-access"/>
+            <column name="USERNAME" value="employee1"/>
+            <column name="ROLE_CODE" value="employee-role"/>
             <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="61842dac-ab1c-45f8-8ef8-6b9c6230a8de"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee1"/>
+            <column name="ROLE_CODE" value="row-level-employee-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="801db297-b895-41fb-96de-880d81f0335e"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee2"/>
+            <column name="ROLE_CODE" value="employee-role"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="29413836-a16f-49b0-b9f6-4a4b149a708e"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee2"/>
+            <column name="ROLE_CODE" value="row-level-employee-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="78e93718-101e-4238-9391-c22feb3755a7"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee3"/>
+            <column name="ROLE_CODE" value="employee-role"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="fbc8dee3-40e4-4de5-a16e-4103d8f05163"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="employee3"/>
+            <column name="ROLE_CODE" value="row-level-employee-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="7e7c3e8e-063d-4fb2-9702-8edff0e3f1af"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client1"/>
+            <column name="ROLE_CODE" value="client-role"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="5fe94149-9226-4c83-8e80-9364a6571550"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client1"/>
+            <column name="ROLE_CODE" value="row-level-client-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="624fec1b-c84d-48d6-80cd-62984ee897aa"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client2"/>
+            <column name="ROLE_CODE" value="client-role"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="406aafa1-5c49-4063-bb8a-e952f6154f10"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client2"/>
+            <column name="ROLE_CODE" value="row-level-client-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="40356ce5-7dc0-46cc-b58b-a3c2933436d3"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client3"/>
+            <column name="ROLE_CODE" value="client-role"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="8012c18c-86d1-412a-bc3b-1845f2c6c344"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="client3"/>
+            <column name="ROLE_CODE" value="row-level-client-role"/>
+            <column name="ROLE_TYPE" value="row_level"/>
         </insert>
 
     </changeSet>

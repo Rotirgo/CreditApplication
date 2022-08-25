@@ -5,7 +5,6 @@ import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDelete;
-import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
@@ -38,7 +37,6 @@ public class Credit {
     private Double limitOfCredit;
 
     @OnDelete(DeletePolicy.CASCADE)
-    @Composition
     @OneToMany(mappedBy = "credit")
     private List<CreditPosition> creditInfo;
 

@@ -17,8 +17,4 @@ public class ClientEdit extends StandardEditor<Client> {
     public void onInitEntity(InitEntityEvent<Client> event) {
         event.getEntity().setUser(clientService.getCurrentUser());
     }
-
-
-    
-    
 }

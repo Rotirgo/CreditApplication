@@ -5,7 +5,7 @@ import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDelete;
-import io.jmix.core.metamodel.annotation.Composition;
+import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 import org.springframework.data.annotation.CreatedBy;
@@ -14,16 +14,14 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "CLIENT", indexes = {
-        @Index(name = "IDX_CLIENT_USER", columnList = "USER_ID")
-})
+@Table(name = "CLIENT")
 @Entity
 public class Client {
     @JmixGeneratedValue
@@ -32,18 +30,17 @@ public class Client {
     private UUID id;
 
     @OnDelete(DeletePolicy.CASCADE)
-    @Composition
     @OneToMany(mappedBy = "client")
     private List<CreditPosition> creditInfo;
 
-    @JoinColumn(name = "USER_ID", nullable = false)
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDeleteInverse(DeletePolicy.UNLINK)
+    @JoinColumn(name = "USER_ID")
+    @OneToOne(fetch = FetchType.LAZY)
+    @OnDelete(DeletePolicy.UNLINK)
     private User user;
 
     @InstanceName
-    @Column(name = "FULL_NAME", nullable = false)
-    @NotNull
+    @Column(name = "FULL_NAME")
     private String fullName;
 
     @Pattern(message = "{msg://com.company.practice.entity/Client.phoneNumber.validation.Pattern}", regexp = "\\+?\\d{5,12}")
@@ -53,9 +50,9 @@ public class Client {
     @Column(name = "MAIL")
     private String mail;
 
+    @NotBlank(message = "{msg://com.company.practice.entity/Client.passportNumber.validation.NotBlank}")
     @Pattern(message = "{msg://com.company.practice.entity/Client.passportNumber.validation.Pattern}", regexp = "\\d{4} \\d{3} \\d{3}")
-    @Column(name = "PASSPORT_NUMBER", nullable = false)
-    @NotNull
+    @Column(name = "PASSPORT_NUMBER")
     private String passportNumber;
 
     @Column(name = "VERSION", nullable = false)
@@ -89,20 +86,20 @@ public class Client {
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
 
-    public List<CreditPosition> getCreditInfo() {
-        return creditInfo;
-    }
-
-    public void setCreditInfo(List<CreditPosition> creditInfo) {
-        this.creditInfo = creditInfo;
-    }
-
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<CreditPosition> getCreditInfo() {
+        return creditInfo;
+    }
+
+    public void setCreditInfo(List<CreditPosition> creditInfo) {
+        this.creditInfo = creditInfo;
     }
 
     public String getPassportNumber() {

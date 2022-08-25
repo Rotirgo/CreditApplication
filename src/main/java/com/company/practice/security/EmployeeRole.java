@@ -4,19 +4,14 @@ import com.company.practice.entity.Client;
 import com.company.practice.entity.Credit;
 import com.company.practice.entity.CreditPosition;
 import com.company.practice.entity.User;
-import io.jmix.core.security.CurrentAuthentication;
-import io.jmix.core.security.SystemAuthenticator;
 import io.jmix.security.model.EntityAttributePolicyAction;
 import io.jmix.security.model.EntityPolicyAction;
-import io.jmix.security.model.RowLevelBiPredicate;
-import io.jmix.security.model.RowLevelPolicyAction;
 import io.jmix.security.role.annotation.EntityAttributePolicy;
 import io.jmix.security.role.annotation.EntityPolicy;
 import io.jmix.security.role.annotation.ResourceRole;
 import io.jmix.securityui.role.UiMinimalRole;
 import io.jmix.securityui.role.annotation.MenuPolicy;
 import io.jmix.securityui.role.annotation.ScreenPolicy;
-import org.springframework.context.ApplicationContext;
 
 @ResourceRole(name = "employee", code = "employee-role")
 public interface EmployeeRole extends UiMinimalRole {
@@ -71,10 +66,8 @@ public interface EmployeeRole extends UiMinimalRole {
             attributes = "*",
             action = EntityAttributePolicyAction.VIEW)
     @ScreenPolicy(
-            screenIds = {"User.browse"}) //, "User.edit"})
-//    @MenuPolicy(
-//            menuIds = {"User.browse"})
-//    void user();
+            screenIds = {"User.browse"})
+    void user();
 
     @MenuPolicy(
             menuIds = {"application"})

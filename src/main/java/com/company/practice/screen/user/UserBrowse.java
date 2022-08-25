@@ -9,4 +9,5 @@ import io.jmix.ui.screen.*;
 @LookupComponent("usersTable")
 @Route("users")
 public class UserBrowse extends StandardLookup<User> {
+
 }
